@@ -1,0 +1,40 @@
+//import "rpc-options.proto";
+package barobo.Robot;
+
+//option (version).major = 0;
+//option (version).minor = 0;
+//option (version).patch = 0;
+
+/* The three basic types of interface component are attributes, methods, and
+ * broadcasts. Each component is defined by a unique message. Each component
+ * will thus have a unique type when compiled into C/C++, which enables us to
+ * use the messages as arguments to an overloaded handler function. By using an
+ * overloaded function accepting a reference to one of these generated
+ * structures, we eliminate a significant amount of boilerplate that would
+ * otherwise have to be maintained in the implementation of an object with this
+ * interface. */
+
+//////////////////////////////////////////////////////////////////////////////
+// Attributes
+
+/* Attribute messages contain a single value. They can be serialized and used
+ * as the payload for a ToObject SET message, a Reply OUT message, or a
+ * FromObject ATTRIBUTE_UPDATE message. When used in a SET, the value
+ * represents the desired new value of the attribute. When used in a Reply OUT
+ * in response to a ToObject GET message, the value is the reported value of
+ * the attribute. When used in a FromObject ATTRIBUTE_UPDATE, the value is the
+ * updated value of the attribute. */
+
+message ledColor {
+    //option (attribute).readonly = false;
+    //option (attribute).noSubscriptions = false;
+    required uint32 value = 1;
+}
+
+message dummyMethod {
+    message In {}
+    message Result {}
+}
+
+message dummyBroadcast {
+}
