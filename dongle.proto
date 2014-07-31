@@ -2,8 +2,12 @@ import "nanopb.proto";
 package barobo.Dongle;
 
 message Address {
-    required string serialId = 1 [(nanopb).max_size = 4];
+    required string serialId = 1 [(nanopb).max_size = 5];
     required uint32 port = 2;
+}
+
+message Payload {
+    required bytes value = 1 [(nanopb).max_size = 128];
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -17,7 +21,7 @@ message dummyAttribute { }
 message transmitUnicast {
     message In {
         required Address destination = 1;
-        required bytes payload = 2 [(nanopb).max_size = 128];
+        required Payload payload = 2;
     }
     message Result { }
 }
@@ -27,5 +31,5 @@ message transmitUnicast {
 
 message receiveUnicast {
     required Address source = 1;
-    required bytes payload = 2 [(nanopb).max_size = 128];
+    required Payload payload = 2;
 }
