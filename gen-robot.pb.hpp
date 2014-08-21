@@ -8,19 +8,35 @@ RPCDEF_HPP(
         // the interface we're defining and it's version triplet
         (barobo, Robot), (0, 0, 0),
         // all attributes
+        (motorControllerAlphaI)
+        (motorControllerAlphaF)
+        (motorControllerOmega)
+        (motorControllerProportionalGain)
+        (motorControllerIntegratorGain)
+        (motorControllerDerivativeGain)
         (ledColor)
+        (buzzerFrequency)
         ,
         // all settable attributes
+        (motorControllerAlphaI)
+        (motorControllerAlphaF)
+        (motorControllerOmega)
+        (motorControllerProportionalGain)
+        (motorControllerIntegratorGain)
+        (motorControllerDerivativeGain)
         (ledColor)
+        (buzzerFrequency)
         ,
         // all subscribable attributes
-        (ledColor)
+        (buzzerFrequency)
         ,
         // all methods
-        (dummyMethod)
+        (getEncoderValues)
+        (getButtonState)
+        (move)
         ,
         // all broadcasts
-        (dummyBroadcast)
+        (buttonEvent)
         )
 
 #endif

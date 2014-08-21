@@ -1,3 +1,4 @@
+import "nanopb.proto";
 //import "rpc-options.proto";
 package barobo.Robot;
 
@@ -25,16 +26,118 @@ package barobo.Robot;
  * the attribute. When used in a FromObject ATTRIBUTE_UPDATE, the value is the
  * updated value of the attribute. */
 
+/* Motor controllers:
+ * - smooth acceleration
+ * - constant velocity (no goal)
+ * - constant velocity (to an absolute goal)
+ * - constant velocity (to a relative goal)
+ * - PID (to an absolute goal)
+ * - PID (to a relative goal)
+ */
+
+// used by smooth acceleration
+message motorControllerAlphaI {
+    required float value = 1; // acceleration
+}
+
+// used by smooth acceleration
+message motorControllerAlphaF {
+    required float value = 1; // deceleration
+}
+
+// used by smooth acceleration, constant velocity
+message motorControllerOmega {
+    required float value = 1; // (max) cruising speed
+}
+
+// used by PID controller
+message motorControllerProportionalGain {
+    required float value = 1;
+}
+
+// used by PID controller
+message motorControllerIntegratorGain {
+    required float value = 1;
+}
+
+// used by PID controller
+message motorControllerDerivativeGain {
+    required float value = 1;
+}
+
 message ledColor {
     //option (attribute).readonly = false;
     //option (attribute).noSubscriptions = false;
     required uint32 value = 1;
 }
 
-message dummyMethod {
-    message In {}
-    message Result {}
+message buzzerFrequency {
+    required float value = 1;
 }
 
-message dummyBroadcast {
+//////////////////////////////////////////////////////////////////////////////
+// Methods
+
+message getEncoderValues {
+    message In {}
+    message Result {
+        required uint32 timestamp = 1;
+        // realistically, the maximum number of encoder values we'll transmit
+        // is 3, but to future-proof this, up the max_count to something
+        // bigger.
+        repeated float values = 2 [packed=true, (nanopb).max_count=32];
+    }
+}
+
+message Goal {
+    enum Type {
+        ABSOLUTE = 1; // move to an absolute angle value
+        RELATIVE = 2; // move to an angle value relative to the current motor angle
+        INFINITE = 3; // just move, using motorControllerOmega's sign to indicate direction
+    }
+    required Type type = 1;
+    required float goal = 2; // absolute, relative angles; or ignored for infinite case
+}
+
+// notes: make motor controller attributes per motor
+//        error if move is called on constant velocity-no goal controlled
+//        motor?
+message move {
+    message In {
+        optional Goal motorOneGoal = 1;
+        optional Goal motorTwoGoal = 2;
+        optional Goal motorThreeGoal = 3;
+    }
+    message Result { }
+}
+
+message getButtonState {
+    message In {}
+    message Result {
+        // 000 = all buttons up
+        // 001 = button POWER down
+        // 010 = button A down
+        // 100 = button B down
+        required uint32 mask = 1;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// Broadcasts
+
+enum Button {
+    POWER = 0;
+    A = 1;
+    B = 2;
+}
+
+enum ButtonState {
+    UP = 0;
+    DOWN = 1;
+}
+
+message buttonEvent {
+    required uint32 timestamp = 1;
+    required Button button = 2;
+    required ButtonState state = 3;
 }
