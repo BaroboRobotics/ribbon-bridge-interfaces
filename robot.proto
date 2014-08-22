@@ -35,36 +35,6 @@ package barobo.Robot;
  * - PID (to a relative goal)
  */
 
-// used by smooth acceleration
-message motorControllerAlphaI {
-    required float value = 1; // acceleration
-}
-
-// used by smooth acceleration
-message motorControllerAlphaF {
-    required float value = 1; // deceleration
-}
-
-// used by smooth acceleration, constant velocity
-message motorControllerOmega {
-    required float value = 1; // (max) cruising speed
-}
-
-// used by PID controller
-message motorControllerProportionalGain {
-    required float value = 1;
-}
-
-// used by PID controller
-message motorControllerIntegratorGain {
-    required float value = 1;
-}
-
-// used by PID controller
-message motorControllerDerivativeGain {
-    required float value = 1;
-}
-
 message ledColor {
     //option (attribute).readonly = false;
     //option (attribute).noSubscriptions = false;
@@ -77,6 +47,121 @@ message buzzerFrequency {
 
 //////////////////////////////////////////////////////////////////////////////
 // Methods
+
+// used by smooth acceleration
+message setMotorControllerAlphaI {
+    message In {
+        required uint32 channel = 1;
+        required float value = 2; // acceleration
+    }
+    message Result {}
+}
+
+// used by smooth acceleration
+message setMotorControllerAlphaF {
+    message In {
+        required uint32 channel = 1;
+        required float value = 2; // deceleration
+    }
+    message Result {}
+}
+
+// used by smooth acceleration, constant velocity
+message setMotorControllerOmega {
+    message In {
+        required uint32 channel = 1;
+        required float value = 2; // deceleration
+    }
+    message Result {}
+}
+
+// used by PID controller
+message setMotorControllerProportionalGain {
+    message In {
+        required uint32 channel = 1;
+        required float value = 2; // Proportional gain for PID controller
+    }
+    message Result {}
+}
+
+// used by PID controller
+message setMotorControllerIntegratorGain {
+    message In {
+        required uint32 channel = 1;
+        required float value = 2; // Integrator gain for PID
+    }
+    message Result {}
+}
+
+// used by PID controller
+message setMotorControllerDerivativeGain {
+    message In {
+        required uint32 channel = 1;
+        required float value = 2; // Derivative gain for PID 
+    }
+    message Result {
+    }
+}
+
+// used by smooth acceleration
+message getMotorControllerAlphaI {
+    message In {
+        required uint32 channel = 1;
+    }
+    message Result {
+        required float value = 1; // acceleration
+    }
+}
+
+// used by smooth acceleration
+message getMotorControllerAlphaF {
+    message In {
+        required uint32 channel = 1;
+    }
+    message Result {
+        required float value = 1; // deceleration
+    }
+}
+
+// used by smooth acceleration, constant velocity
+message getMotorControllerOmega {
+    message In {
+        required uint32 channel = 1;
+    }
+    message Result {
+        required float value = 1; // deceleration
+    }
+}
+
+// used by PID controller
+message getMotorControllerProportionalGain {
+    message In {
+        required uint32 channel = 1;
+    }
+    message Result {
+        required float value = 1; // Proportional gain for PID controller
+    }
+}
+
+// used by PID controller
+message getMotorControllerIntegratorGain {
+    message In {
+        required uint32 channel = 1;
+    }
+    message Result {
+        required float value = 1; // Integrator gain for PID
+    }
+}
+
+// used by PID controller
+message getMotorControllerDerivativeGain {
+    message In {
+        required uint32 channel = 1;
+    }
+    message Result {
+        required float value = 1; // Derivative gain for PID 
+    }
+}
 
 message getEncoderValues {
     message In {}
@@ -94,6 +179,10 @@ message Goal {
         ABSOLUTE = 1; // move to an absolute angle value
         RELATIVE = 2; // move to an angle value relative to the current motor angle
         INFINITE = 3; // just move, using motorControllerOmega's sign to indicate direction
+    }
+    enum Controller {
+        PID = 1;
+        CONSTVEL = 2;
     }
     required Type type = 1;
     required float goal = 2; // absolute, relative angles; or ignored for infinite case

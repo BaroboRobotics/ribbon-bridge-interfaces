@@ -8,22 +8,10 @@ RPCDEF_HPP(
         // the interface we're defining and it's version triplet
         (barobo, Robot), (0, 0, 0),
         // all attributes
-        (motorControllerAlphaI)
-        (motorControllerAlphaF)
-        (motorControllerOmega)
-        (motorControllerProportionalGain)
-        (motorControllerIntegratorGain)
-        (motorControllerDerivativeGain)
         (ledColor)
         (buzzerFrequency)
         ,
         // all settable attributes
-        (motorControllerAlphaI)
-        (motorControllerAlphaF)
-        (motorControllerOmega)
-        (motorControllerProportionalGain)
-        (motorControllerIntegratorGain)
-        (motorControllerDerivativeGain)
         (ledColor)
         (buzzerFrequency)
         ,
@@ -31,6 +19,18 @@ RPCDEF_HPP(
         (buzzerFrequency)
         ,
         // all methods
+        (getMotorControllerAlphaI)
+        (getMotorControllerAlphaF)
+        (getMotorControllerOmega)
+        (getMotorControllerProportionalGain)
+        (getMotorControllerIntegratorGain)
+        (getMotorControllerDerivativeGain)
+        (setMotorControllerAlphaI)
+        (setMotorControllerAlphaF)
+        (setMotorControllerOmega)
+        (setMotorControllerProportionalGain)
+        (setMotorControllerIntegratorGain)
+        (setMotorControllerDerivativeGain)
         (getEncoderValues)
         (getButtonState)
         (move)

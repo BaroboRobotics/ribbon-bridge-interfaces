@@ -3,22 +3,10 @@
 
 RPCDEF_CPP((barobo, Robot),
         // all attributes
-        (motorControllerAlphaI)
-        (motorControllerAlphaF)
-        (motorControllerOmega)
-        (motorControllerProportionalGain)
-        (motorControllerIntegratorGain)
-        (motorControllerDerivativeGain)
         (ledColor)
         (buzzerFrequency)
         ,
         // all settable attributes
-        (motorControllerAlphaI)
-        (motorControllerAlphaF)
-        (motorControllerOmega)
-        (motorControllerProportionalGain)
-        (motorControllerIntegratorGain)
-        (motorControllerDerivativeGain)
         (ledColor)
         (buzzerFrequency)
         ,
@@ -26,6 +14,18 @@ RPCDEF_CPP((barobo, Robot),
         (buzzerFrequency)
         ,
         // all methods
+        (getMotorControllerAlphaI)
+        (getMotorControllerAlphaF)
+        (getMotorControllerOmega)
+        (getMotorControllerProportionalGain)
+        (getMotorControllerIntegratorGain)
+        (getMotorControllerDerivativeGain)
+        (setMotorControllerAlphaI)
+        (setMotorControllerAlphaF)
+        (setMotorControllerOmega)
+        (setMotorControllerProportionalGain)
+        (setMotorControllerIntegratorGain)
+        (setMotorControllerDerivativeGain)
         (getEncoderValues)
         (getButtonState)
         (move)
