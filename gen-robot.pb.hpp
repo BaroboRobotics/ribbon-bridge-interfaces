@@ -19,6 +19,7 @@ RPCDEF_HPP(
         (buzzerFrequency)
         ,
         // all methods
+        (enableButtonEvent)
         (getMotorControllerAlphaI)
         (getMotorControllerAlphaF)
         (getMotorControllerOmega)

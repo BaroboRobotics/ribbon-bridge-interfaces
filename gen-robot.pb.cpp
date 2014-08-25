@@ -14,6 +14,7 @@ RPCDEF_CPP((barobo, Robot),
         (buzzerFrequency)
         ,
         // all methods
+        (enableButtonEvent)
         (getMotorControllerAlphaI)
         (getMotorControllerAlphaF)
         (getMotorControllerOmega)

@@ -48,6 +48,13 @@ message buzzerFrequency {
 //////////////////////////////////////////////////////////////////////////////
 // Methods
 
+message enableButtonEvent {
+    message In{
+        required uint32 enable = 1;
+    }
+    message Result {}
+}
+
 // used by smooth acceleration
 message setMotorControllerAlphaI {
     message In {
