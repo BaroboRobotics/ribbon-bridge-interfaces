@@ -34,6 +34,7 @@ RPCDEF_HPP(
         (setMotorControllerDerivativeGain)
         (getEncoderValues)
         (getButtonState)
+        (getFirmwareVersion)
         (move)
         ,
         // all broadcasts

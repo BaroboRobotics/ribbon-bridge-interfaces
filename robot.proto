@@ -218,6 +218,19 @@ message getButtonState {
     }
 }
 
+message VersionTriplet {
+    required uint32 major = 1;
+    required uint32 minor = 2;
+    required uint32 patch = 3;
+}
+
+message getFirmwareVersion {
+    message In {}
+    message Result {
+        required VersionTriplet value = 1;
+    }
+}
+
 //////////////////////////////////////////////////////////////////////////////
 // Broadcasts
 

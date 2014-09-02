@@ -29,6 +29,7 @@ RPCDEF_CPP((barobo, Robot),
         (setMotorControllerDerivativeGain)
         (getEncoderValues)
         (getButtonState)
+        (getFirmwareVersion)
         (move)
         ,
         // all broadcasts
