@@ -6,19 +6,21 @@
 
 RPCDEF_HPP(
         // the interface we're defining and it's version triplet
-        (barobo, Robot), (0, 0, 0),
+        (barobo, Robot), (0, 0, 1),
         // all attributes
-        (ledColor)
-        (buzzerFrequency)
+        (dummyAttribute)
         ,
         // all settable attributes
-        (ledColor)
-        (buzzerFrequency)
+        (dummyAttribute)
         ,
         // all subscribable attributes
-        (buzzerFrequency)
+        (dummyAttribute)
         ,
         // all methods
+        (getLedColor)
+        (setLedColor)
+        (getBuzzerFrequency)
+        (setBuzzerFrequency)
         (enableButtonEvent)
         (getMotorControllerAlphaI)
         (getMotorControllerAlphaF)

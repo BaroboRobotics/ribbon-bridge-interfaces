@@ -16,15 +16,7 @@ package barobo.Robot;
  * interface. */
 
 //////////////////////////////////////////////////////////////////////////////
-// Attributes
-
-/* Attribute messages contain a single value. They can be serialized and used
- * as the payload for a ToObject SET message, a Reply OUT message, or a
- * FromObject ATTRIBUTE_UPDATE message. When used in a SET, the value
- * represents the desired new value of the attribute. When used in a Reply OUT
- * in response to a ToObject GET message, the value is the reported value of
- * the attribute. When used in a FromObject ATTRIBUTE_UPDATE, the value is the
- * updated value of the attribute. */
+// Methods
 
 /* Motor controllers:
  * - smooth acceleration
@@ -35,18 +27,37 @@ package barobo.Robot;
  * - PID (to a relative goal)
  */
 
-message ledColor {
-    //option (attribute).readonly = false;
-    //option (attribute).noSubscriptions = false;
+message dummyAttribute {
     required uint32 value = 1;
 }
 
-message buzzerFrequency {
-    required float value = 1;
+message getLedColor {
+    message In {}
+    message Result {
+        required uint32 value = 1;
+    }
 }
 
-//////////////////////////////////////////////////////////////////////////////
-// Methods
+message setLedColor {
+    message In {
+        required uint32 value = 1;
+    }
+    message Result {}
+}
+
+message getBuzzerFrequency {
+    message In {}
+    message Result {
+        required float value = 1;
+    }
+}
+
+message setBuzzerFrequency {
+    message In {
+        required float value = 1;
+    }
+    message Result {}
+}
 
 message enableButtonEvent {
     message In{
@@ -218,16 +229,12 @@ message getButtonState {
     }
 }
 
-message VersionTriplet {
-    required uint32 major = 1;
-    required uint32 minor = 2;
-    required uint32 patch = 3;
-}
-
 message getFirmwareVersion {
     message In {}
     message Result {
-        required VersionTriplet value = 1;
+        required uint32 major = 1;
+        required uint32 minor = 2;
+        required uint32 patch = 3;
     }
 }
 

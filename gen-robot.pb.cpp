@@ -3,17 +3,19 @@
 
 RPCDEF_CPP((barobo, Robot),
         // all attributes
-        (ledColor)
-        (buzzerFrequency)
+        (dummyAttribute)
         ,
         // all settable attributes
-        (ledColor)
-        (buzzerFrequency)
+        (dummyAttribute)
         ,
         // all subscribable attributes
-        (buzzerFrequency)
+        (dummyAttribute)
         ,
         // all methods
+        (getLedColor)
+        (setLedColor)
+        (getBuzzerFrequency)
+        (setBuzzerFrequency)
         (enableButtonEvent)
         (getMotorControllerAlphaI)
         (getMotorControllerAlphaF)
