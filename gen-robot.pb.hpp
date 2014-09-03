@@ -6,7 +6,7 @@
 
 RPCDEF_HPP(
         // the interface we're defining and it's version triplet
-        (barobo, Robot), (0, 0, 1),
+        (barobo, Robot), (0, 0, 2),
         // all attributes
         (dummyAttribute)
         ,
@@ -38,6 +38,7 @@ RPCDEF_HPP(
         (getButtonState)
         (getFirmwareVersion)
         (move)
+        (stop)
         ,
         // all broadcasts
         (buttonEvent)

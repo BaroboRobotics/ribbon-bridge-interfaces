@@ -218,6 +218,11 @@ message move {
     message Result { }
 }
 
+message stop {
+    message In {}
+    message Result {}
+}
+
 message getButtonState {
     message In {}
     message Result {

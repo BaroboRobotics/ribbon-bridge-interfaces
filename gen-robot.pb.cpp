@@ -33,6 +33,7 @@ RPCDEF_CPP((barobo, Robot),
         (getButtonState)
         (getFirmwareVersion)
         (move)
+        (stop)
         ,
         // all broadcasts
         (buttonEvent)
