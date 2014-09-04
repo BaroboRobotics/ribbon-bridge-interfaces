@@ -27,10 +27,6 @@ package barobo.Robot;
  * - PID (to a relative goal)
  */
 
-message dummyAttribute {
-    required uint32 value = 1;
-}
-
 message getLedColor {
     message In {}
     message Result {

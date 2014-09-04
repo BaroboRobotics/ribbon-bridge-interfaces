@@ -7,15 +7,6 @@
 RPCDEF_HPP(
         // the interface we're defining and it's version triplet
         (barobo, Robot), (0, 0, 2),
-        // all attributes
-        (dummyAttribute)
-        ,
-        // all settable attributes
-        (dummyAttribute)
-        ,
-        // all subscribable attributes
-        (dummyAttribute)
-        ,
         // all methods
         (getLedColor)
         (setLedColor)
