@@ -57,9 +57,23 @@ message setBuzzerFrequency {
 
 message enableButtonEvent {
     message In{
-        required uint32 enable = 1;
+        required bool enable = 1;
     }
     message Result {}
+}
+
+message enableEncoderEvent {
+    message In{
+        message SignalState{
+            required bool enable = 1;
+            required float granularity = 2;
+        }
+
+        optional SignalState encoderOne = 1;
+        optional SignalState encoderTwo = 2;
+        optional SignalState encoderThree = 3;
+    }
+    message Result{}
 }
 
 // used by smooth acceleration
@@ -257,4 +271,10 @@ message buttonEvent {
     required uint32 timestamp = 1;
     required Button button = 2;
     required ButtonState state = 3;
+}
+
+message encoderEvent {
+    required uint32 timestamp = 1;
+    required uint32 encoder = 2;
+    required float value = 3;
 }

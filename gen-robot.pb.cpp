@@ -8,6 +8,7 @@ RPCDEF_CPP((barobo, Robot),
         (getBuzzerFrequency)
         (setBuzzerFrequency)
         (enableButtonEvent)
+        (enableEncoderEvent)
         (getMotorControllerAlphaI)
         (getMotorControllerAlphaF)
         (getMotorControllerOmega)
@@ -28,4 +29,5 @@ RPCDEF_CPP((barobo, Robot),
         ,
         // all broadcasts
         (buttonEvent)
+        (encoderEvent)
         )
