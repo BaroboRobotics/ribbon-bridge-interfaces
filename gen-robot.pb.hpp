@@ -8,10 +8,12 @@ RPCDEF_HPP(
         // the interface we're defining and it's version triplet
         (barobo, Robot), (0, 0, 3),
         // all methods
+        (getAccelerometerData)
         (getLedColor)
         (setLedColor)
         (getBuzzerFrequency)
         (setBuzzerFrequency)
+        (enableAccelerometerEvent)
         (enableButtonEvent)
         (enableEncoderEvent)
         (getMotorControllerAlphaI)
@@ -35,6 +37,7 @@ RPCDEF_HPP(
         // all broadcasts
         (buttonEvent)
         (encoderEvent)
+        (accelerometerEvent)
         )
 
 #endif
