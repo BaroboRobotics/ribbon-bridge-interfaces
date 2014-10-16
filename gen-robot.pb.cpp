@@ -3,10 +3,12 @@
 
 RPCDEF_CPP((barobo, Robot),
         // all methods
+        (getAccelerometerData)
         (getLedColor)
         (setLedColor)
         (getBuzzerFrequency)
         (setBuzzerFrequency)
+        (enableAccelerometerEvent)
         (enableButtonEvent)
         (enableEncoderEvent)
         (getMotorControllerAlphaI)
@@ -30,4 +32,5 @@ RPCDEF_CPP((barobo, Robot),
         // all broadcasts
         (buttonEvent)
         (encoderEvent)
+        (accelerometerEvent)
         )
