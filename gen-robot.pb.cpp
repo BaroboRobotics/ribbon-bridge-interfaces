@@ -11,6 +11,7 @@ RPCDEF_CPP((barobo, Robot),
         (enableAccelerometerEvent)
         (enableButtonEvent)
         (enableEncoderEvent)
+        (enableJointEvent)
         (getMotorControllerAlphaI)
         (getMotorControllerAlphaF)
         (getMotorControllerOmega)
@@ -33,4 +34,5 @@ RPCDEF_CPP((barobo, Robot),
         (buttonEvent)
         (encoderEvent)
         (accelerometerEvent)
+        (jointEvent)
         )

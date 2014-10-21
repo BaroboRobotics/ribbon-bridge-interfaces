@@ -16,6 +16,7 @@ RPCDEF_HPP(
         (enableAccelerometerEvent)
         (enableButtonEvent)
         (enableEncoderEvent)
+        (enableJointEvent)
         (getMotorControllerAlphaI)
         (getMotorControllerAlphaF)
         (getMotorControllerOmega)
@@ -38,6 +39,7 @@ RPCDEF_HPP(
         (buttonEvent)
         (encoderEvent)
         (accelerometerEvent)
+        (jointEvent)
         )
 
 #endif

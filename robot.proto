@@ -85,6 +85,13 @@ message enableEncoderEvent {
     message Result{}
 }
 
+message enableJointEvent {
+    message In{
+        required bool enable = 1;
+    }
+    message Result{}
+}
+
 message enableAccelerometerEvent {
     message In {
         required bool enable = 1;
@@ -302,4 +309,15 @@ message accelerometerEvent {
     required float x = 2;
     required float y = 3;
     required float z = 4;
+}
+
+enum JointEventType {
+    HOLD = 0;
+    STOP = 1;
+    FAIL = 2; // Joint could not reach desired position
+}
+
+message jointEvent {
+    required uint32 joint = 1;
+    required JointEventType event = 2;
 }
