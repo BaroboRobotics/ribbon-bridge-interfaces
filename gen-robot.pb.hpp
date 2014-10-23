@@ -30,6 +30,7 @@ RPCDEF_HPP(
         (setMotorControllerIntegratorGain)
         (setMotorControllerDerivativeGain)
         (getEncoderValues)
+        (getJointStates)
         (getButtonState)
         (getFirmwareVersion)
         (move)

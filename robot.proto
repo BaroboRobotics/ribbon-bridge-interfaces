@@ -227,6 +227,20 @@ message getEncoderValues {
     }
 }
 
+message getJointStates {
+    enum JointState {
+        COAST = 0;
+        HOLD = 1;
+        MOVING = 2;
+    }
+    message In {}
+    message Result{
+        required uint32 timestamp = 1;
+        // See getEncoderValues above
+        repeated JointState values = 2 [packed=true, (nanopb).max_count=32];
+    }
+}
+
 message Goal {
     enum Type {
         ABSOLUTE = 1; // move to an absolute angle value
