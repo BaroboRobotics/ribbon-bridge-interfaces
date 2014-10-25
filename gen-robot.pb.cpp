@@ -25,6 +25,7 @@ RPCDEF_CPP((barobo, Robot),
         (setMotorControllerIntegratorGain)
         (setMotorControllerDerivativeGain)
         (getEncoderValues)
+        (getFormFactor)
         (getJointStates)
         (getButtonState)
         (getFirmwareVersion)
