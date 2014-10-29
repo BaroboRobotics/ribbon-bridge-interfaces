@@ -258,14 +258,15 @@ message Goal {
     enum Type {
         ABSOLUTE = 1; // move to an absolute angle value
         RELATIVE = 2; // move to an angle value relative to the current motor angle
-        INFINITE = 3; // just move, using motorControllerOmega's sign to indicate direction
+        INFINITE = 3; // just move, using goal as a coefficient to speed
+                      // i.e., use 1.0 to move forward, -1.0 to move backward
     }
     enum Controller {
         PID = 1;
         CONSTVEL = 2;
     }
     required Type type = 1;
-    required float goal = 2; // absolute, relative angles; or ignored for infinite case
+    required float goal = 2; // absolute, relative angles; or coefficient in infinite case
 }
 
 // notes: make motor controller attributes per motor
