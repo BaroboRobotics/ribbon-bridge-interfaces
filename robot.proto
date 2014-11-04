@@ -266,6 +266,7 @@ message Goal {
     }
     required Type type = 1;
     required float goal = 2; // absolute, relative angles; or ignored for infinite case
+    optional Controller controller = 3;
 }
 
 // notes: make motor controller attributes per motor
