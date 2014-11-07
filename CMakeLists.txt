@@ -3,7 +3,6 @@ project(ribbon-bridge-interfaces)
 
 nanopb_add_proto(commontypes-proto commontypes.proto)
 
-
 nanopb_add_proto(robot-interface robot.proto gen-robot.pb.cpp)
 nanopb_add_proto(dongle-interface dongle.proto gen-dongle.pb.cpp)
 nanopb_add_proto(daemon-interface daemon.proto gen-daemon.pb.cpp)
