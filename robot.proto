@@ -104,8 +104,8 @@ message enableAccelerometerEvent {
 // used by smooth acceleration
 message setMotorControllerAlphaI {
     message In {
-        required uint32 channel = 1;
-        required float value = 2; // acceleration
+        required uint32 mask = 1;
+        repeated float values = 2 [packed=true, (nanopb).max_count=32]; 
     }
     message Result {}
 }
@@ -113,8 +113,8 @@ message setMotorControllerAlphaI {
 // used by smooth acceleration
 message setMotorControllerAlphaF {
     message In {
-        required uint32 channel = 1;
-        required float value = 2; // deceleration
+        required uint32 mask = 1;
+        repeated float values = 2[packed=true, (nanopb).max_count=32]; 
     }
     message Result {}
 }
@@ -122,8 +122,8 @@ message setMotorControllerAlphaF {
 // used by smooth acceleration, constant velocity
 message setMotorControllerOmega {
     message In {
-        required uint32 channel = 1;
-        required float value = 2; // deceleration
+        required uint32 mask = 1;
+        repeated float values = 2[packed=true, (nanopb).max_count=32]; 
     }
     message Result {}
 }
@@ -131,8 +131,8 @@ message setMotorControllerOmega {
 // used by PID controller
 message setMotorControllerProportionalGain {
     message In {
-        required uint32 channel = 1;
-        required float value = 2; // Proportional gain for PID controller
+        required uint32 mask = 1;
+        repeated float values = 2[packed=true, (nanopb).max_count=32]; 
     }
     message Result {}
 }
@@ -140,8 +140,8 @@ message setMotorControllerProportionalGain {
 // used by PID controller
 message setMotorControllerIntegratorGain {
     message In {
-        required uint32 channel = 1;
-        required float value = 2; // Integrator gain for PID
+        required uint32 mask = 1;
+        repeated float values = 2[packed=true, (nanopb).max_count=32]; 
     }
     message Result {}
 }
@@ -149,8 +149,8 @@ message setMotorControllerIntegratorGain {
 // used by PID controller
 message setMotorControllerDerivativeGain {
     message In {
-        required uint32 channel = 1;
-        required float value = 2; // Derivative gain for PID 
+        required uint32 mask = 1;
+        repeated float values = 2[packed=true, (nanopb).max_count=32]; // Derivative gain for PID 
     }
     message Result {
     }
@@ -159,60 +159,54 @@ message setMotorControllerDerivativeGain {
 // used by smooth acceleration
 message getMotorControllerAlphaI {
     message In {
-        required uint32 channel = 1;
     }
     message Result {
-        required float value = 1; // acceleration
+        repeated float values = 1[packed=true, (nanopb).max_count=32]; // acceleration
     }
 }
 
 // used by smooth acceleration
 message getMotorControllerAlphaF {
     message In {
-        required uint32 channel = 1;
     }
     message Result {
-        required float value = 1; // deceleration
+        repeated float values = 1[packed=true, (nanopb).max_count=32]; // deceleration
     }
 }
 
 // used by smooth acceleration, constant velocity
 message getMotorControllerOmega {
     message In {
-        required uint32 channel = 1;
     }
     message Result {
-        required float value = 1; // deceleration
+        repeated float values = 1[packed=true, (nanopb).max_count=32]; // deceleration
     }
 }
 
 // used by PID controller
 message getMotorControllerProportionalGain {
     message In {
-        required uint32 channel = 1;
     }
     message Result {
-        required float value = 1; // Proportional gain for PID controller
+        repeated float values = 1[packed=true, (nanopb).max_count=32]; // Proportional gain for PID controller
     }
 }
 
 // used by PID controller
 message getMotorControllerIntegratorGain {
     message In {
-        required uint32 channel = 1;
     }
     message Result {
-        required float value = 1; // Integrator gain for PID
+        repeated float values = 1[packed=true, (nanopb).max_count=32]; // Integrator gain for PID
     }
 }
 
 // used by PID controller
 message getMotorControllerDerivativeGain {
     message In {
-        required uint32 channel = 1;
     }
     message Result {
-        required float value = 1; // Derivative gain for PID 
+        repeated float values = 1[packed=true, (nanopb).max_count=32]; // Derivative gain for PID 
     }
 }
 
@@ -264,6 +258,7 @@ message Goal {
     enum Controller {
         PID = 1;
         CONSTVEL = 2;
+        SMOOTH = 3;
     }
     required Type type = 1;
     required float goal = 2; // absolute, relative angles; or coefficient in infinite case
@@ -283,7 +278,7 @@ message move {
 }
 
 message stop {
-    message In {}
+    message In {optional uint32 mask = 1;}
     message Result {}
 }
 
