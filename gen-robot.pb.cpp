@@ -31,6 +31,7 @@ RPCDEF_CPP((barobo, Robot),
         (getFirmwareVersion)
         (move)
         (stop)
+        (writeEeprom)
         ,
         // all broadcasts
         (buttonEvent)

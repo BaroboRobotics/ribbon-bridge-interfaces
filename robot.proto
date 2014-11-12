@@ -302,6 +302,14 @@ message getFirmwareVersion {
     }
 }
 
+message writeEeprom {
+    message In {
+        required uint32 address = 1;
+        required bytes data = 2 [(nanopb).max_size = 128];
+    }
+    message Result { }
+}
+
 //////////////////////////////////////////////////////////////////////////////
 // Broadcasts
 

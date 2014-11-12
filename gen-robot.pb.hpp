@@ -36,6 +36,7 @@ RPCDEF_HPP(
         (getFirmwareVersion)
         (move)
         (stop)
+        (writeEeprom)
         ,
         // all broadcasts
         (buttonEvent)
