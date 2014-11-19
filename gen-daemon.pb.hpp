@@ -8,7 +8,7 @@ RPCDEF_HPP(
         // the interface we're defining and it's version triplet
         (barobo, Daemon), (0, 0, 0),
         // all methods
-        (getRobotTcpAddress)
+        (getRobotTcpEndpoint)
         ,
         // all broadcasts
         (robotPluggedIn)
