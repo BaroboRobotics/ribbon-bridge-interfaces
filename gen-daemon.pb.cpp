@@ -2,7 +2,7 @@
 #include "rpc/def.hpp"
 
 RPCDEF_CPP((barobo, Daemon),
-        (getRobotTcpEndpoint)
+        (resolveSerialId)
         ,
         (robotPluggedIn)
         )

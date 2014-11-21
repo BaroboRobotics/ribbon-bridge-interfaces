@@ -10,7 +10,7 @@ message TcpEndpoint {
 
 // Methods
 
-message getRobotTcpEndpoint {
+message resolveSerialId {
     message In {
         required barobo.commontypes.SerialId serialId = 1;
     }
