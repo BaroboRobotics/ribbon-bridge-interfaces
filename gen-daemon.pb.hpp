@@ -6,7 +6,7 @@
 
 RPCDEF_HPP(
         // the interface we're defining and it's version triplet
-        (barobo, Daemon), (0, 0, 0),
+        (barobo, Daemon), (0, 1, 0),
         // all methods
         (resolveSerialId)
         ,
