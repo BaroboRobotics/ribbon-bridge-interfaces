@@ -1,12 +1,18 @@
 cmake_minimum_required(VERSION 2.8)
-project(robotinterface)
+project(ribbon-bridge-interfaces)
 
-rpc_compile_proto(ROBOT_PROTO_C_FILE ROBOT_PROTO_H_FILE robot.proto)
+nanopb_add_proto(commontypes-proto commontypes.proto)
 
-get_filename_component(protoDir ${ROBOT_PROTO_H_FILE} DIRECTORY)
+nanopb_add_proto(robot-interface robot.proto gen-robot.pb.cpp)
+nanopb_add_proto(dongle-interface dongle.proto gen-dongle.pb.cpp)
+nanopb_add_proto(daemon-interface daemon.proto gen-daemon.pb.cpp)
 
-add_library(robotpb OBJECT ${ROBOT_PROTO_C_FILE})
-target_include_directories(robotpb
-    PRIVATE ${NANOPB_INCLUDE_DIR}
-    PUBLIC ${protoDir}
-    PUBLIC .)
+set_source_files_properties(
+    gen-robot.pb.cpp
+    gen-dongle.pb.cpp
+    gen-daemon.pb.cpp
+    PROPERTIES COMPILE_FLAGS -std=c++11)
+
+target_link_libraries(robot-interface commontypes-proto rpc)
+target_link_libraries(dongle-interface commontypes-proto rpc)
+target_link_libraries(daemon-interface commontypes-proto rpc)

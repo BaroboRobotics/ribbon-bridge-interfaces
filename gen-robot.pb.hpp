@@ -6,21 +6,43 @@
 
 RPCDEF_HPP(
         // the interface we're defining and it's version triplet
-        (barobo, Robot), (0, 0, 0),
-        // all attributes
-        (ledColor)
-        ,
-        // all settable attributes
-        (ledColor)
-        ,
-        // all subscribable attributes
-        (ledColor)
-        ,
+        (barobo, Robot), (0, 1, 0),
         // all methods
-        (dummyMethod)
+        (getAccelerometerData)
+        (getLedColor)
+        (setLedColor)
+        (getBuzzerFrequency)
+        (setBuzzerFrequency)
+        (enableAccelerometerEvent)
+        (enableButtonEvent)
+        (enableEncoderEvent)
+        (enableJointEvent)
+        (getMotorControllerAlphaI)
+        (getMotorControllerAlphaF)
+        (getMotorControllerOmega)
+        (getMotorControllerProportionalGain)
+        (getMotorControllerIntegratorGain)
+        (getMotorControllerDerivativeGain)
+        (setMotorControllerAlphaI)
+        (setMotorControllerAlphaF)
+        (setMotorControllerOmega)
+        (setMotorControllerProportionalGain)
+        (setMotorControllerIntegratorGain)
+        (setMotorControllerDerivativeGain)
+        (getEncoderValues)
+        (getFormFactor)
+        (getJointStates)
+        (getButtonState)
+        (getFirmwareVersion)
+        (move)
+        (stop)
+        (writeEeprom)
         ,
         // all broadcasts
-        (dummyBroadcast)
+        (buttonEvent)
+        (encoderEvent)
+        (accelerometerEvent)
+        (jointEvent)
         )
 
 #endif
