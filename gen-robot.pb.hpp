@@ -43,6 +43,7 @@ RPCDEF_HPP(
         (encoderEvent)
         (accelerometerEvent)
         (jointEvent)
+        (debugMessageEvent)
         )
 
 #endif

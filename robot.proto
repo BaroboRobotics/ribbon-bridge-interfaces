@@ -354,3 +354,8 @@ message jointEvent {
     required uint32 joint = 2;
     required JointEventType event = 3;
 }
+
+message debugMessageEvent {
+    required uint32 timestamp = 1;
+    required string bytestring = 2 [(nanopb).max_size=128];
+}

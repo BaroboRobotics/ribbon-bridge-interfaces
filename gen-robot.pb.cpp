@@ -38,4 +38,5 @@ RPCDEF_CPP((barobo, Robot),
         (encoderEvent)
         (accelerometerEvent)
         (jointEvent)
+        (debugMessageEvent)
         )
